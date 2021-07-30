@@ -39,6 +39,11 @@ public class Menu {
 				System.out.println("Informe a quantidade de clientes novos: ");
 				qtdClientes = ler.nextInt();
 				
+				while (qtdClientes < 0) {
+					System.out.println("Quantidade inválida, digite novamente");
+					qtdClientes = ler.nextInt();
+				}
+				
 				for (int i = 0; i < qtdClientes; i++) {
 					
 					cadastroClientes(listaClientes, lerString);
@@ -106,6 +111,11 @@ public class Menu {
 				System.out.println("Informe a quantidade de produtos novos: ");
 				qtdProdutos = ler.nextInt();
 				
+				while (qtdProdutos < 0) {
+					System.out.println("Quantidade inválida, digite novamente");
+					qtdProdutos = ler.nextInt();
+				}
+				
 				for	(int i = 0; i < qtdProdutos; i++) {
 					
 					cadastroProdutos(estoque, lerString, ler);
@@ -164,6 +174,11 @@ public class Menu {
 						
 						System.out.printf("Insira o estoque: ");
 						estoque.get(idProduto).setQtdEstoque(ler.nextInt());
+						
+						while(estoque.get(idProduto).getQtdEstoque() < 0) {
+							System.out.println("Estoque inválido, digite novamente: ");
+							estoque.get(idProduto).setQtdEstoque(ler.nextInt());
+						}
 						
 						System.out.println("\n---Alteração feita com sucesso---");
 					}
@@ -376,6 +391,11 @@ public class Menu {
 		
 		System.out.println("Quantidade em estoque");
 		qtdEstoque = ler.nextInt();
+		
+		while(qtdEstoque < 0) {
+			System.out.println("Estoque inválido, digite novamente: ");
+			qtdEstoque = ler.nextInt();
+		}
 		
 		estoque.add(new Produto(nomeProduto, descricao, valor, lucro, qtdEstoque));
 	}
